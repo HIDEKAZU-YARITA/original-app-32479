@@ -1,0 +1,88 @@
+<div class='account-page' id='account-page'>
+  <div class='account-page__inner clearfix'>
+    <div class='account-page__inner--left account-page__header'>
+      <h2>Create Account</h2>
+      <h5>新規アカウントの作成</h5>
+    </div>
+    <div class='account-page__inner--right user-form'>
+      <%= form_with model: resource, as: resource_name, url: registration_path(resource_name), local: true do |f|%>
+        <%= devise_error_messages!%>
+        <div class='field'>
+          <div class='field-label'>
+            <b>電子メールアドレス</b>
+            <%= f.label :email%>
+          </div>
+          <div class='field-input'>
+            <%= f.email_field :email%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <b>パスワード</b>(英数字6文字以上)
+            <%= f.label :password%>
+          </div>
+          <div class='field-input'>
+            <%= f.password_field :password, autocomplete: "off"%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <b>パスワード(確認)</b>
+            <%= f.label :password_confirmation%>
+          </div>
+          <div class='field-input'>
+            <%= f.password_field :password_confirmation, autocomplete: "off"%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <b>姓</b>(全角)
+            <%= f.label :last_name%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :last_name, autofocus: true%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <b>名</b>(全角)
+            <%= f.label :first_name%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :first_name, autofocus: true%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <b>姓：カナ</b>(全角)
+            <%= f.label :last_name_kana%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :last_name_kana, autofocus: true%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <b>名：カナ</b>(全角)
+            <%= f.label :first_name_kana%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :first_name_kana, autofocus: true%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <b>電話番号</b>(半角：ハイフンなし)
+            <%= f.label :phone_number%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :phone_number, autofocus: true%>
+          </div>
+        </div>
+        <div class='actions'>
+          <%= f.submit "Create Account", class: 'btn'%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
