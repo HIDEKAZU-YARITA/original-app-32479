@@ -1,24 +1,32 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## customers テーブル
 
-Things you may want to cover:
+| Column             | Type    | Options                     |
+| ------------------ | ------- | --------------------------- |
+| email              | string  | null: false, unique: true   |
+| encrypted_password | string  | null: false                 |
+| last_name          | string  | null: false                 |
+| first_name         | string  | null: false                 |
+| last_name_kana     | string  | null: false                 |
+| first_name_kana    | string  | null: false                 |
+| phone_number       | string  | null: false                 |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :reservations
 
-* Configuration
 
-* Database creation
+## reservations テーブル
 
-* Database initialization
+| Column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| start_time | datetime   | null: false                    |
+| end_time   | datetime   | null: false                    |
+| menu_id    | integer    | null: false                    |
+| staff_id   | integer    | null: false                    |
+| customer   | references | null: false, foreign_key: true |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- belongs_to :customer
