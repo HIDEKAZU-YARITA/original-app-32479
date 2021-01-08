@@ -14,5 +14,4 @@ class Customer < ApplicationRecord
     validates :first_name_kana,  format: { with: /\A[ァ-ヶー－]+\z/, message: 'is invalid. Input full-width katakana characters.' }
     validates :phone_number,     format: { with: /\A\d{10}$|^\d{11}\z/, message: 'is invalid.' }
   end
-
 end
