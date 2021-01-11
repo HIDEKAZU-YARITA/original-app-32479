@@ -34,40 +34,44 @@
             <%= f.password_field :password_confirmation, autocomplete: "off"%>
           </div>
         </div>
-        <div class='field'>
-          <div class='field-label'>
-            <b>姓</b>(全角)
-            <%= f.label :last_name%>
+        <div class='field-parent'>
+          <div class='field-child'>
+            <div class='field-label'>
+              <b>姓</b>(全角)
+              <%= f.label :last_name%>
+            </div>
+            <div class='field-input'>
+              <%= f.text_field :last_name, autofocus: true%>
+            </div>
           </div>
-          <div class='field-input'>
-            <%= f.text_field :last_name, autofocus: true%>
-          </div>
-        </div>
-        <div class='field'>
-          <div class='field-label'>
-            <b>名</b>(全角)
-            <%= f.label :first_name%>
-          </div>
-          <div class='field-input'>
-            <%= f.text_field :first_name, autofocus: true%>
-          </div>
-        </div>
-        <div class='field'>
-          <div class='field-label'>
-            <b>姓：カナ</b>(全角)
-            <%= f.label :last_name_kana%>
-          </div>
-          <div class='field-input'>
-            <%= f.text_field :last_name_kana, autofocus: true%>
+          <div class='field-child'>
+            <div class='field-label'>
+              <b>名</b>(全角)
+              <%= f.label :first_name%>
+            </div>
+            <div class='field-input'>
+              <%= f.text_field :first_name, autofocus: true%>
+            </div>
           </div>
         </div>
-        <div class='field'>
-          <div class='field-label'>
-            <b>名：カナ</b>(全角)
-            <%= f.label :first_name_kana%>
+        <div class='field-parent'>
+          <div class='field-child'>
+            <div class='field-label'>
+              <b>姓：カナ</b>(全角)
+              <%= f.label :last_name_kana%>
+            </div>
+            <div class='field-input'>
+              <%= f.text_field :last_name_kana, autofocus: true%>
+            </div>
           </div>
-          <div class='field-input'>
-            <%= f.text_field :first_name_kana, autofocus: true%>
+          <div class='field-child'>
+            <div class='field-label'>
+              <b>名：カナ</b>(全角)
+              <%= f.label :first_name_kana%>
+            </div>
+            <div class='field-input'>
+              <%= f.text_field :first_name_kana, autofocus: true%>
+            </div>
           </div>
         </div>
         <div class='field'>

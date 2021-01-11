@@ -14,4 +14,16 @@ class Customer < ApplicationRecord
     validates :first_name_kana,  format: { with: /\A[ァ-ヶー－]+\z/, message: 'is invalid. Input full-width katakana characters.' }
     validates :phone_number,     format: { with: /\A\d{10}$|^\d{11}\z/, message: 'is invalid.' }
   end
+
+  def update_without_current_password(params, *options)
+    params.delete(:current_password)
+
+    if params[:password].blank? && params[:password_confirmation].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation)
+    end
+    result = update_attributes(params, *options)
+    clean_up_passwords
+    result
+  end
 end

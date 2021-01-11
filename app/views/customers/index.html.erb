@@ -2,6 +2,8 @@
 <p>Find me in app/views/customers/index.html.erb</p>
 
 <% if customer_signed_in? %>
+  <li><%= link_to current_customer.last_name + ' ' + current_customer.first_name + ' 様',
+          edit_customer_registration_path(current_customer), method: :get, class: "customer-name" %></li>
   <li><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: "logout" %></li>
 <% else %>
   <li><%= link_to 'ログイン', new_customer_session_path, class: "login" %></li>
