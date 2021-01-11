@@ -1,4 +1,8 @@
 class Reservation < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :menu
+  belongs_to :staff
+
   belongs_to  :customer
 
   with_options presence: true do
