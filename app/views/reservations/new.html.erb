@@ -1,0 +1,53 @@
+<div class='reservation-page' id='reservation-page'>
+  <div class='reservation-page__inner clearfix'>
+    <div class='reservation-page__inner--left reservation-page__header'>
+      <h2>New Reservation</h2>
+      <h5>新規予約</h5>
+    </div>
+    <div class='reservation-page__inner--right user-form'>
+      <%= form_with model: @reservation, url: root_path, local: true do |f|%>
+        <%#= devise_error_messages!%>
+        <div class='field'>
+          <div class="field-label">
+            <b>予約日時</b>
+          </div>
+          <%= raw sprintf(
+                      f.date_select(
+                        :start_time,
+                        with_css_classes:'select-start-time',
+                        id:"start-time",
+                        use_month_numbers: true,
+                        default: (Time.now),
+                        start_year: (Time.now.year),
+                        end_year: (Time.now.year + 1),
+                        date_separator: '%s'),
+                        "年", "月") +  "日" %>
+          <%= raw sprintf(
+                      f.time_select(
+                        :start_time,
+                        with_css_classes:'select-start-time',
+                        id:"start-time",
+                        default: (Time.now),
+                        start_hour: 8,
+                        end_hour: 17,
+                        minute_step: 30)) %>
+        </div>
+        <div class='field'>
+          <div class="field-label">
+            <b>メニュー</b>
+          </div>
+          <%= f.collection_select(:menu_id, Menu.all, :id, :name, {}, {class:"select-box", id:"reservation-menu"}) %>
+        </div>
+        <div class='field'>
+          <div class="field-label">
+            <b>担当者</b>
+          </div>
+          <%= f.collection_select(:staff_id, Staff.all, :id, :name, {}, {class:"select-box", id:"reservation-staff"}) %>
+        </div>
+        <div class='actions'>
+          <%= f.submit "Create Reservation", class: 'btn'%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

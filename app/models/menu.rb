@@ -1,4 +1,4 @@
-class Menu < ApplicationRecord
+class Menu < ActiveHash::Base
   self.data = [
     { id: 0, name: '--' },
     { id: 1, name: 'カット', time: 1.0 },
