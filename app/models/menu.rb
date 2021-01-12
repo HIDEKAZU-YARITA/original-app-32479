@@ -1,6 +1,6 @@
 class Menu < ActiveHash::Base
   self.data = [
-    { id: 0, name: '--' },
+    { id: 0, name: '--', time: 0.0 },
     { id: 1, name: 'カット', time: 1.0 },
     { id: 2, name: 'カラー', time: 1.0 },
     { id: 3, name: 'パーマ', time: 1.0 },
