@@ -5,32 +5,28 @@
       <h5>新規予約</h5>
     </div>
     <div class='reservation-page__inner--right user-form'>
-      <%= form_with model: @reservation, url: root_path, local: true do |f|%>
-        <%#= devise_error_messages!%>
+      <%= form_with model: @reservation, url: reservations_path, local: true do |f|%>
+
+      <%= render 'shared/error_messages', model: @reservation %>
+
         <div class='field'>
           <div class="field-label">
             <b>予約日時</b>
           </div>
           <%= raw sprintf(
-                      f.date_select(
+                      f.datetime_select(
                         :start_time,
                         with_css_classes:'select-start-time',
                         id:"start-time",
                         use_month_numbers: true,
-                        default: (Time.now),
+                        default: (Time.now) + 60 * 60,
                         start_year: (Time.now.year),
                         end_year: (Time.now.year + 1),
-                        date_separator: '%s'),
-                        "年", "月") +  "日" %>
-          <%= raw sprintf(
-                      f.time_select(
-                        :start_time,
-                        with_css_classes:'select-start-time',
-                        id:"start-time",
-                        default: (Time.now),
                         start_hour: 8,
                         end_hour: 17,
-                        minute_step: 30)) %>
+                        minute_step: 30,
+                        date_separator: '%s'),
+                        "／", "／") %>
         </div>
         <div class='field'>
           <div class="field-label">
