@@ -15,16 +15,16 @@ class ReservationsController < ApplicationController
         render :new
       end
     elsif return_value == 1
-      @reservation.errors.add(:start_time, "is already scheduled.")
+      @reservation.errors.add(:start_time, 'is already scheduled.')
       render :new
     elsif return_value == 2
-      @reservation.errors.add(:end_time, "is outside business hours.")
+      @reservation.errors.add(:end_time, 'is outside business hours.')
       render :new
     elsif return_value == 3
-      @reservation.errors.add(:start_time, "is holiday.")
+      @reservation.errors.add(:start_time, 'is holiday.')
       render :new
     elsif return_value == 4
-      @reservation.errors.add(:start_time, "is the past.")
+      @reservation.errors.add(:start_time, 'is the past.')
       render :new
     end
   end

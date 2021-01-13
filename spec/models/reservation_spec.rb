@@ -17,12 +17,12 @@ RSpec.describe Reservation, type: :model do
         it 'menu_idが0の場合は登録できない' do
           @reservation.menu_id = 0
           @reservation.valid?
-          expect(@reservation.errors.full_messages).to include("Menu must be selected.")
+          expect(@reservation.errors.full_messages).to include('Menu must be selected.')
         end
         it 'staff_idが0の場合は登録できない' do
           @reservation.staff_id = 0
           @reservation.valid?
-          expect(@reservation.errors.full_messages).to include("Staff must be selected.")
+          expect(@reservation.errors.full_messages).to include('Staff must be selected.')
         end
       end
     end

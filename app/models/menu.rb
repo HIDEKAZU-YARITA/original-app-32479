@@ -15,7 +15,7 @@ class Menu < ActiveHash::Base
     { id: 12, name: 'カット・カラー・トリートメント', time: 3.0 },
     { id: 13, name: 'カット・パーマ・トリートメント', time: 3.0 },
     { id: 14, name: 'カラー・パーマ・トリートメント', time: 3.0 },
-    { id: 15, name: 'カット・カラー・パーマ・トリートメント', time: 4.0 },
+    { id: 15, name: 'カット・カラー・パーマ・トリートメント', time: 4.0 }
   ]
   include ActiveHash::Associations
   has_many :reservations
