@@ -4,7 +4,6 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    binding.pry
     @reservation = Reservation.new(reservation_params)
     @menu = Menu.find(@reservation.menu_id)
     @reservation.end_time = @reservation.start_time + @menu.time * 60 * 60
