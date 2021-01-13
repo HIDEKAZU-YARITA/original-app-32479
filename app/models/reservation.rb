@@ -16,8 +16,9 @@ class Reservation < ApplicationRecord
   end
 
   def self.check(reservation)
-    @reservations = Reservation.where(staff_id: reservation.staff_id)
-    business_hours_end_time = DateTime.new(reservation.start_time.year, reservation.start_time.mon, reservation.start_time.day, 18, 00)
+    search_date = DateTime.new(reservation.start_time.year, reservation.start_time.mon, reservation.start_time.day)
+    @reservations = Reservation.where(staff_id: reservation.staff_id).where(start_time: search_date.in_time_zone.all_day)
+    business_hours_end_time = DateTime.new(search_date.year, search_date.mon, search_date.day, 18, 00)
     break_flag = 0
     if reservation.start_time < DateTime.now    # 過去
       break_flag = 4
