@@ -208,9 +208,9 @@
   border-radius: 5px;
 }
 .staffs{
-  height: calc(100vh - 100px);
+  height: calc(100vh - 100px - 30px);
   background-color: #2f3e51;
-  padding: 40px 60px;
+  padding: 30px 60px 0;
   /* overflow: scroll; */
 }
 .staff{
@@ -218,7 +218,7 @@
   border: solid 1px #2f3e51;
   background-color: white;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 .staff a{
   padding: 20px;
@@ -266,10 +266,9 @@
   height: calc(100vh - 100px);
   background-color: #fafafa;
   padding: 0 40px;
-  overflow: scroll;
   display: flex;
   justify-content: center;
-  align-items: center;
+  padding-top: 200px;
 }
 .reservation-none {
   font-size: large;
@@ -297,17 +296,55 @@
 .hidden {
   display: none;
 }
+.img-file{
+  bottom: 30px;
+  left: 80px;
+  position: fixed;
+  padding: 15px;
+}
 
 /********** 表 **********/
-table{
+.index-table {
   width: 100%;
 }
-table th{
+.index-table th{
   padding : 10px 10px;
   border-bottom: solid 2px #253141;
 }
-table td{
+.index-table td{
   padding : 10px 10px;
   border-bottom: solid 1px #aaaaaa;
   text-align: center;
+}
+.index-table td a{
+  text-decoration: none;
+}
+.index-table .text-left{
+  padding : 10px 10px;
+  border-bottom: solid 1px #aaaaaa;
+  text-align: left;
+}
+.index-table .text-left a{
+  text-decoration: none;
+}
+
+.show-table-parent {
+  height: calc(100vh - 100px);
+  background-color: #fafafa;
+  padding-top: 100px;
+}
+.show-table {
+  margin-left: auto;
+  margin-right: auto;
+}
+.show-table th{
+  padding : 10px 10px;
+  border-bottom: solid 2px #253141;
+  text-align: left;
+}
+.show-table td{
+  padding : 10px 10px;
+  border-bottom: solid 1px #aaaaaa;
+  text-align: center;
+  text-align: left;
 }
