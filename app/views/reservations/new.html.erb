@@ -19,7 +19,7 @@
                         with_css_classes:'select-start-time',
                         id:"start-time",
                         use_month_numbers: true,
-                        default: (DateTime.now),
+                        default: (DateTime.now) + 1.0.hour,
                         start_year: (DateTime.now.year),
                         end_year: (DateTime.now.year + 1),
                         start_hour: 8,
@@ -30,18 +30,21 @@
         </div>
         <div class='field'>
           <div class="field-label">
+            <b>担当者</b>
+          </div>
+          <%= f.collection_select(:staff_id, Staff.all, :id, :name, {selected: params[:id]}, {class:"select-box", id:"reservation-staff"}) %>
+        </div>
+        <div class='field'>
+          <div class="field-label">
             <b>メニュー</b>
           </div>
           <%= f.collection_select(:menu_id, Menu.all, :id, :name, {}, {class:"select-box", id:"reservation-menu"}) %>
         </div>
-        <div class='field'>
-          <div class="field-label">
-            <b>担当者</b>
-          </div>
-          <%= f.collection_select(:staff_id, Staff.all, :id, :name, {}, {class:"select-box", id:"reservation-staff"}) %>
-        </div>
         <div class='actions'>
           <%= f.submit "Create Reservation", class: 'btn'%>
+        </div>
+        <div class='actions'>
+          <%= link_to 'Back', root_path, class: 'back-btn'%>
         </div>
       </div>
     <% end %>

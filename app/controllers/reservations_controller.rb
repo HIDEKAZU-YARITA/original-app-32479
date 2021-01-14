@@ -1,4 +1,6 @@
 class ReservationsController < ApplicationController
+  before_action :authenticate_customer!
+
   def new
     @reservation = Reservation.new
   end
@@ -27,6 +29,12 @@ class ReservationsController < ApplicationController
       @reservation.errors.add(:start_time, 'is the past.')
       render :new
     end
+  end
+
+  def index
+    @staffs = Staff.where.not(id: 0)
+    @staff = Staff.find(params[:id])
+    @reservations = Reservation.where(staff_id: @staff.id).where('start_time >= ?', Date.today).order(start_time: 'ASC')
   end
 
   private
