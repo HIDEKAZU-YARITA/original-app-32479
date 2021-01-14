@@ -156,3 +156,134 @@
   padding: 0;
   font-size: 13px;
 }
+
+/********** 一覧ページ **********/
+.wrapper{
+  display: flex;
+}
+.side-bar{
+  height: 100vh;
+  width: 300px;
+  background-color: #253141;
+}
+.side-bar-header{
+  height: 100px;
+  padding: 0px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border-bottom: solid 1px white; */
+}
+.header-name a{
+  font-size: 20px;
+  color: #FAFAFA;
+  text-decoration: none;
+}
+.log-out{
+  font-size: 14px;
+}
+.log-out a{
+  padding: 14px;
+  color: #253141;
+  text-decoration: none;
+  background-color: white;
+  border-radius: 5px;
+}
+.staffs{
+  height: calc(100vh - 100px);
+  background-color: #2f3e51;
+  padding: 0 20px;
+  /* overflow: scroll; */
+}
+.staff{
+  padding: 20px 0 40px;
+}
+.staff-name a{
+  text-decoration: none;
+  color: white;
+}
+.reservation-main{
+  width: calc(100vw - 300px);
+  background-color: #ffffff;
+}
+.reservation-main-header{
+  height: 100px;
+  padding: 0px 40px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 1px lightgray;
+}
+.header-title{
+  color: #333;
+  font-size: 24px;
+  margin-top: 36px;
+}
+.header-button{
+  margin-top: 40px;
+}
+.header-button a {
+  text-decoration: none;
+  color: darkred;
+  padding: 20px;
+  color: #fff;
+  background-color: #253141;
+  border-radius: 5px;
+}
+.reservations{
+  height: calc(100vh - 100px);
+  background-color: #fafafa;
+  padding: 0 40px;
+  overflow: scroll;
+}
+.reservation {
+  margin: 10px 0 0 0;
+}
+.reservations-none {
+  height: calc(100vh - 100px);
+  background-color: #fafafa;
+  padding: 0 40px;
+  overflow: scroll;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.reservation-none {
+  font-size: large;
+}
+.upper-message{
+  display: flex;
+}
+.message-user {
+  color: #434a54;
+  font-size: 16px;
+}
+.message-date {
+  color: #999;
+  font-size: 12px;
+  padding-left: 10px;
+}
+.lower-message {
+  margin-top: 10px;
+}
+.message-content {
+  color: #434a54;
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+.hidden {
+  display: none;
+}
+
+/********** 表 **********/
+table{
+  width: 100%;
+}
+table th{
+  padding : 10px 10px;
+  border-bottom: solid 2px #253141;
+}
+table td{
+  padding : 10px 10px;
+  border-bottom: solid 1px #aaaaaa;
+  text-align: center;
+}

@@ -1,0 +1,29 @@
+<div class="reservation-main-header">
+  <div class="left-header">
+    <div class="header-title">
+      <%= @staff.name %>
+    </div>
+  </div>
+  <div class="right-header">
+    <div class="header-button">
+      <%= link_to "新規予約", new_reservation_path, method: :get %>
+    </div>
+  </div>
+</div>
+
+<% if @reservations.present? %>
+<div class="reservations">
+  <table>
+    <tr>
+      <th>日付</th> <th>開始時刻</th> <th>終了時刻</th> <th>お客様名</th> <th>メニュー</th> <th>最終更新日時</th>
+    </tr>
+  <%= render partial: 'reservation', collection: @reservations %>
+  <table>
+</div>
+<% else%>
+<div class="reservations-none">
+  <div class="reservation-none">
+  <%= @staff.name + 'の予約情報はありません。ご予約をお待ちしております。'%>
+  </div>
+</div>
+<% end %>
