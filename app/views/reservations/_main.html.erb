@@ -6,7 +6,7 @@
   </div>
   <div class="right-header">
     <div class="header-button">
-      <%= link_to "新規予約", new_reservation_path, method: :get %>
+      <%= link_to "New Reservation", new_reservation_path(id: @staff.id), method: :get %>
     </div>
   </div>
 </div>

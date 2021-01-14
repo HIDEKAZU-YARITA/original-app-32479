@@ -26,7 +26,7 @@
   display: block;
   width: 60px;
   margin-top: 5px;
-  border-bottom: 1px solid #38aef0;
+  border-bottom: 1px solid #253141;
 }
 .reservation-page .reservation-page__header h5 {
   margin-bottom: 20px;
@@ -84,6 +84,7 @@
   font-size: 20px;
   background-color: #f5f5f5;
   margin-right: 5px;
+  border-radius: 5px;
 }
 .reservation-page .select-start-time, .month, .day, .hour, .minute {
   height: 40px;
@@ -92,6 +93,7 @@
   background-color: #f5f5f5;
   margin-left: 15px;
   margin-right: 5px;
+  border-radius: 5px;
 }
 .reservation-page .select-box {
   height: 40px;
@@ -99,6 +101,7 @@
   font-size: 20px;
   background-color: #f5f5f5;
   padding-left: 20px;
+  border-radius: 5px;
 }
 .reservation-page .btn {
   display: inline-block;
@@ -107,14 +110,30 @@
   line-height: 50px;
   letter-spacing: 1px;
   text-align: center;
-  border: none;
-  border-radius: 2px;
+  border: solid 1px #253141;
+  border-radius: 5px;
 }
 .reservation-page input[type=submit] {
   float: left;
-  margin-top: 20px;
+  margin-top: 30px;
   color: #fff;
-  background-color: #38aef0;
+  background-color: #253141;
+}
+.reservation-page .back-btn {
+  margin-top: 30px;
+  margin-left: 20px;
+  color: #253141;
+  background-color: #fff;
+  display: inline-block;
+  height: 48px;
+  padding: 0 30px;
+  line-height: 50px;
+  letter-spacing: 1px;
+  text-align: center;
+  border: solid 1px #253141;
+  border-radius: 5px;
+  font-size: 12px;
+  text-decoration: none;
 }
 .reservation-page .field-label .field_with_errors {
   display: inline-block;
@@ -172,7 +191,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* border-bottom: solid 1px white; */
 }
 .header-name a{
   font-size: 20px;
@@ -192,15 +210,21 @@
 .staffs{
   height: calc(100vh - 100px);
   background-color: #2f3e51;
-  padding: 0 20px;
+  padding: 40px 60px;
   /* overflow: scroll; */
 }
 .staff{
-  padding: 20px 0 40px;
+  border-radius: 5px;
+  border: solid 1px #2f3e51;
+  background-color: white;
+  text-align: center;
+  margin-bottom: 40px;
 }
-.staff-name a{
+.staff a{
+  padding: 20px;
   text-decoration: none;
-  color: white;
+  color: #2f3e51;
+  display: block;
 }
 .reservation-main{
   width: calc(100vw - 300px);

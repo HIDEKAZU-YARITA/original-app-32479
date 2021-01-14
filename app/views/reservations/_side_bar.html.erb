@@ -10,9 +10,7 @@
 <div class="staffs">
   <% @staffs.each do |staff| %>
     <div class="staff">
-      <div class="staff-name">
-        <%= link_to staff.name, reservations_path(id: staff.id) %>
-      </div>
+      <%= link_to staff.name, reservations_path(id: staff.id) %>
     </div>
   <% end %>
 </div>
