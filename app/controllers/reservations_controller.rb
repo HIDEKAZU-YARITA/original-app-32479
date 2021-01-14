@@ -34,7 +34,7 @@ class ReservationsController < ApplicationController
   def index
     @staffs = Staff.where.not(id: 0)
     @staff = Staff.find(params[:id])
-    @reservations = Reservation.where(staff_id: @staff.id).where('start_time >= ?', Date.today).order(start_time: "ASC")
+    @reservations = Reservation.where(staff_id: @staff.id).where('start_time >= ?', Date.today).order(start_time: 'ASC')
   end
 
   private
