@@ -3,7 +3,7 @@
     <div class='account-page__inner--left account-page__header'>
       <h2>Log in</h2>
       <h5>登録しているユーザーでログイン</h5>
-      <%= render "devise/shared/links"%>
+      <%#= render "devise/shared/links"%>
     </div>
     <div class='account-page__inner--right user-form'>
       <%= form_with model: resource, as: resource_name, url: session_path(resource_name), local: true do |f|%>
@@ -26,6 +26,9 @@
           </div>
           <div class='actions'>
             <%= f.submit "Log in", class: 'btn'%>
+          </div>
+          <div class='actions'>
+            <%= link_to 'Sign up', new_customer_registration_path, class: 'back-btn'%>
           </div>
         </div>
       <% end %>
