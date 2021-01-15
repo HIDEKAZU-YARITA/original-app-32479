@@ -303,7 +303,7 @@
   padding: 15px;
 }
 
-/********** 表 **********/
+/********** 一覧ページ：表 **********/
 .index-table {
   width: 100%;
 }
@@ -328,6 +328,7 @@
   text-decoration: none;
 }
 
+/********** 詳細ページ **********/
 .show-table-parent {
   height: calc(100vh - 100px - 100px);
   background-color: #fafafa;
@@ -336,6 +337,7 @@
 .show-table {
   margin-left: auto;
   margin-right: auto;
+  font-size: 28px;
 }
 .show-table th{
   padding : 10px 10px;
@@ -349,6 +351,7 @@
   text-align: left;
 }
 
+/********** トップページ **********/
 .top-page {
   height: calc(100vh - 100px);
   background-color: #fafafa;
