@@ -1,0 +1,38 @@
+<div class="wrapper">
+  <div class="side-bar">
+    <%= render "side_bar" %>
+  </div>
+  <div class="reservation-main">
+    <div class="reservation-main-header">
+      <div class="left-header">
+        <div class="header-title">
+          ご予約の内容
+        </div>
+      </div>
+      <div class="right-header">
+        <div class="header-button">
+          <%= link_to "Edit Reservation", '#', method: :get %>
+        </div>
+      </div>
+    </div>
+    <div class="show-table-parent">
+      <table class="show-table">
+        <tr> <th>お客様名</th> <td><%= @reservation.customer.last_name + ' ' + @reservation.customer.first_name + ' 様' %></td> </tr>
+        <tr> <th>ご予約日時</th>
+          <td>
+            <%= @reservation.start_time.strftime('%Y/%m/%d') + '(' + %w(日 月 火 水 木 金 土)[@reservation.start_time.wday] + ')' %>
+            <%= @reservation.start_time.strftime('%H:%M') + '〜' + @reservation.end_time.strftime('%H:%M') %>
+          </td>
+        </tr>
+        <tr> <th>担当者</th> <td><%= @reservation.staff.name %></td> </tr>
+        <tr> <th>メニュー</th> <td><%= @reservation.menu.name %></td> </tr>
+        <tr><th>最終更新日時</th>
+          <td>
+            <%= @reservation.updated_at.strftime('%Y/%m/%d') + '(' + %w(日 月 火 水 木 金 土)[@reservation.updated_at.wday] + ')' %>
+            <%= @reservation.updated_at.strftime('%H:%M') %>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

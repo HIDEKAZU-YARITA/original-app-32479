@@ -1,17 +1,27 @@
 <div class="reservation">
+  <% if current_customer.id == reservation.customer.id %>
+  <tr>
+    <td><%= link_to reservation.start_time.strftime('%Y/%m/%d') + '(' + %w(日 月 火 水 木 金 土)[reservation.start_time.wday] + ')', reservation_path(reservation.id) %></td>
+    <td><%= link_to reservation.start_time.strftime('%H:%M'), reservation_path(reservation.id) %></td>
+    <td><%= link_to reservation.end_time.strftime('%H:%M'), reservation_path(reservation.id) %></td>
+    <td class="text-left" ><%= link_to reservation.customer.last_name + ' ' + reservation.customer.first_name + ' 様', reservation_path(reservation.id) %></td>
+    <td class="text-left" ><%= link_to reservation.menu.name, reservation_path(reservation.id) %></td>
+    <td>
+      <%= link_to reservation.updated_at.strftime('%Y/%m/%d') + '(' + %w(日 月 火 水 木 金 土)[reservation.updated_at.wday] + ') ' +
+          reservation.updated_at.strftime('%H:%M'), reservation_path(reservation.id) %>
+    </td>
+  </tr>
+  <% else%>
   <tr>
     <td><%= reservation.start_time.strftime('%Y/%m/%d') + '(' + %w(日 月 火 水 木 金 土)[reservation.start_time.wday] + ')' %></td>
     <td><%= reservation.start_time.strftime('%H:%M') %></td>
     <td><%= reservation.end_time.strftime('%H:%M') %></td>
-    <% if current_customer.id == reservation.customer.id %>
-    <td><%= reservation.customer.last_name + ' ' + reservation.customer.first_name + ' 様' %></td>
-    <% else%>
-    <td>他のお客様がご予約済み</td>
-    <% end %>
-    <td><%= reservation.menu.name %></td>
+    <td class="text-left" >他のお客様がご予約済み</td>
+    <td class="text-left" ><%= reservation.menu.name %></td>
     <td>
-      <%= reservation.updated_at.strftime('%Y/%m/%d日') +  + '(' + %w(日 月 火 水 木 金 土)[reservation.updated_at.wday] + ')' %>
-      <%= reservation.updated_at.strftime('%H:%M') %></td>
+      <%= reservation.updated_at.strftime('%Y/%m/%d') + '(' + %w(日 月 火 水 木 金 土)[reservation.updated_at.wday] + ') ' +
+          reservation.updated_at.strftime('%H:%M') %>
     </td>
   </tr>
+  <% end %>
 </div>

@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_customer!
+  before_action :set_staffs, only: [:index, :show]
 
   def new
     @reservation = Reservation.new
@@ -12,7 +13,7 @@ class ReservationsController < ApplicationController
     return_value = Reservation.check(@reservation)
     if return_value == 0
       if @reservation.save
-        redirect_to new_reservation_path
+        redirect_to reservations_path(id: @reservation.staff.id)
       else
         render :new
       end
@@ -32,14 +33,21 @@ class ReservationsController < ApplicationController
   end
 
   def index
-    @staffs = Staff.where.not(id: 0)
     @staff = Staff.find(params[:id])
     @reservations = Reservation.where(staff_id: @staff.id).where('start_time >= ?', Date.today).order(start_time: 'ASC')
+  end
+
+  def show
+    @reservation = Reservation.find(params[:id])
   end
 
   private
 
   def reservation_params
     params.require(:reservation).permit(:start_time, :menu_id, :staff_id).merge(customer_id: current_customer.id)
+  end
+
+  def set_staffs
+    @staffs = Staff.where.not(id: 0)
   end
 end
