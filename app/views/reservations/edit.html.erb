@@ -5,7 +5,7 @@
       <h5>予約の変更</h5>
     </div>
     <div class='reservation-page__inner--right user-form'>
-      <%= form_with model: @reservation, url: reservations_path, local: true do |f|%>
+      <%= form_with model: @reservation, url: reservation_path, method: :patch, local: true do |f|%>
 
       <%= render 'shared/error_messages', model: @reservation %>
 
@@ -43,7 +43,7 @@
           <%= f.submit "Update Reservation", class: 'btn'%>
         </div>
         <div class='actions'>
-          <%= link_to 'Back', reservation_path(@reservation.id), class: 'back-btn' %>
+          <%= link_to 'Back', reservation_path, class: 'back-btn' %>
         </div>
       </div>
     <% end %>
