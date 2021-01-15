@@ -271,7 +271,7 @@
   padding-top: 200px;
 }
 .reservation-none {
-  font-size: large;
+  font-size: 28px;
 }
 .upper-message{
   display: flex;
@@ -329,7 +329,7 @@
 }
 
 .show-table-parent {
-  height: calc(100vh - 100px);
+  height: calc(100vh - 100px - 100px);
   background-color: #fafafa;
   padding-top: 100px;
 }
@@ -347,4 +347,25 @@
   border-bottom: solid 1px #aaaaaa;
   text-align: center;
   text-align: left;
+}
+
+.top-page {
+  height: calc(100vh - 100px);
+  background-color: #fafafa;
+  text-align: center;
+}
+.top-page .top-img-file {
+  margin-top: 80px; 
+}
+.top-page .title {
+  margin-top: 70px; 
+  font-size: 40px;
+}
+.top-page .text {
+  margin-top: 30px; 
+  font-size: 25px;
+}
+.top-page .copy-right {
+  margin-top: 120px; 
+  font-size: 12px;
 }
