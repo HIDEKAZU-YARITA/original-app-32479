@@ -242,15 +242,29 @@
   font-size: 24px;
   margin-top: 36px;
 }
+.header-button-parent{
+  display: flex;
+}
 .header-button{
   margin-top: 40px;
 }
 .header-button a {
   text-decoration: none;
-  color: darkred;
   padding: 20px;
   color: #fff;
   background-color: #253141;
+  border-radius: 5px;
+}
+.header-button-destroy{
+  margin-top: 40px;
+  margin-right: 40px;
+}
+.header-button-destroy a {
+  text-decoration: none;
+  padding: 20px;
+  color: #253141;
+  background-color: #fff;
+  border: solid 1px #253141;
   border-radius: 5px;
 }
 .reservations{

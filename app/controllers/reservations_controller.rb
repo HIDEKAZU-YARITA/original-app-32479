@@ -1,7 +1,7 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_customer!
   before_action :set_staffs, only: [:index, :show]
-  before_action :set_reservation, only: [:show, :edit]
+  before_action :set_reservation, only: [:show, :edit, :destroy]
   before_action :set_end_time, only: [:create, :update]
 
   def new
@@ -65,6 +65,16 @@ class ReservationsController < ApplicationController
     elsif return_value == 4
       @reservation.errors.add(:start_time, 'is the past.')
       render :edit
+    end
+  end
+
+  def destroy
+    if @reservation.start_time > DateTime.now
+      @pre_reservation = @reservation
+      @reservation.destroy
+      redirect_to reservations_path(id: @pre_reservation.staff.id) and return
+    else
+      redirect_to reservations_path(id: @reservation.staff.id) and return
     end
   end
 
