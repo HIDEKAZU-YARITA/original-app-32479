@@ -1,11 +1,11 @@
 <div class='reservation-page' id='reservation-page'>
   <div class='reservation-page__inner clearfix'>
     <div class='reservation-page__inner--left reservation-page__header'>
-      <h2>New Reservation</h2>
-      <h5>新規予約</h5>
+      <h2>Edit Reservation</h2>
+      <h5>予約の変更</h5>
     </div>
     <div class='reservation-page__inner--right user-form'>
-      <%= form_with model: @reservation, url: reservations_path, local: true do |f|%>
+      <%= form_with model: @reservation, url: reservation_path, method: :patch, local: true do |f|%>
 
       <%= render 'shared/error_messages', model: @reservation %>
 
@@ -19,7 +19,6 @@
                         with_css_classes:'select-start-time',
                         id:"start-time",
                         use_month_numbers: true,
-                        default: (DateTime.now) + 1.0.hour,
                         start_year: (DateTime.now.year),
                         end_year: (DateTime.now.year + 1),
                         start_hour: 8,
@@ -41,10 +40,10 @@
           <%= f.collection_select(:menu_id, Menu.all, :id, :name, {}, {class:"select-box", id:"reservation-menu"}) %>
         </div>
         <div class='actions'>
-          <%= f.submit "Create Reservation", class: 'btn'%>
+          <%= f.submit "Update Reservation", class: 'btn'%>
         </div>
         <div class='actions'>
-          <%= link_to 'Back', root_path, class: 'back-btn' %>
+          <%= link_to 'Back', reservation_path, class: 'back-btn' %>
         </div>
       </div>
     <% end %>

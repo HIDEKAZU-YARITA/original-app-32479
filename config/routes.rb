@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   
   get 'customers/index'
   root to: "staffs#index"
-  resources :reservations, only: [:new, :create, :index, :show]
+  resources :reservations, only: [:new, :create, :index, :show, :edit, :update]
   resources :staffs, only: [:index]
 end
