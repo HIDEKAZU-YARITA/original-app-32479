@@ -365,10 +365,14 @@
   font-size: 40px;
 }
 .top-page .text {
-  margin-top: 30px; 
+  margin-top: 10px; 
+  font-size: 18px;
+}
+.top-page .message {
+  margin-top: 45px; 
   font-size: 25px;
 }
 .top-page .copy-right {
-  margin-top: 120px; 
+  margin-top: 65px; 
   font-size: 12px;
 }
