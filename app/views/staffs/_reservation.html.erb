@@ -1,5 +1,5 @@
 <div class="reservation">
-  <% if current_customer.id == reservation.customer.id %>
+  <% if customer_signed_in? && current_customer.id == reservation.customer.id %>
   <tr>
     <td><%= link_to reservation.start_time.strftime('%Y/%m/%d') + '(' + %w(日 月 火 水 木 金 土)[reservation.start_time.wday] + ')', reservation_path(reservation.id) %></td>
     <td><%= link_to reservation.start_time.strftime('%H:%M'), reservation_path(reservation.id) %></td>

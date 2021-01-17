@@ -1,12 +1,26 @@
 <div class="reservation-main-header">
   <div class="left-header">
     <div class="header-title">
-      <%= 'ご予約の状況：すべて' %>
+      ご予約の状況：すべて
     </div>
   </div>
   <div class="right-header">
-    <div class="header-button">
-      <%= link_to "New Reservation", new_reservation_path, method: :get %>
+    <div class="header-button-parent">
+      <div class="header-button-reverse">
+        <%= link_to "Top Page", root_path, method: :get %>
+      </div>
+      <% if customer_signed_in? %>
+      <div class="header-button">
+        <%= link_to "To New Reservation", new_reservation_path, method: :get %>
+      </div>
+      <% else %>
+      <div class="header-button-reverse">
+        <%= link_to "To Sign Up", new_customer_registration_path, method: :get %>
+      </div>
+      <div class="header-button">
+        <%= link_to "To Sign In", new_customer_session_path, method: :get %>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>

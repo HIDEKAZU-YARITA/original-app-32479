@@ -10,6 +10,16 @@
         </div>
       </div>
       <div class="right-header">
+        <div class="header-button-parent">
+          <% unless customer_signed_in? %>
+          <div class="header-button-reverse">
+            <%= link_to "To Sign Up", new_customer_registration_path, method: :get %>
+          </div>
+          <div class="header-button">
+            <%= link_to "To Sign In", new_customer_session_path, method: :get %>
+          </div>
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="top-page">
@@ -21,7 +31,7 @@
         (営業時間) 10:00 から 18:00 まで  (定休日) 毎週火曜日
       </div>
       <div class="message">
-        左側の担当者をクリックするとご予約いただけます
+        予約の状況は左側のボタンをクリックするとご確認いただけます
       </div>
       <div class="copy-right">
         (c) 2021 Original App 32479 Beauty Salon. All rights reserved. 
