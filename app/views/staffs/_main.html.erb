@@ -1,7 +1,7 @@
 <div class="reservation-main-header">
   <div class="left-header">
     <div class="header-title">
-      <%= 'ご予約の状況(担当別)：' + @staff.name %>
+      <%= 'ご予約の状況：すべて' %>
     </div>
   </div>
   <div class="right-header">
@@ -15,7 +15,7 @@
 <div class="reservations">
   <table class="index-table">
     <tr>
-      <th>日付</th> <th>開始時刻</th> <th>終了時刻</th> <th>お客様名</th> <th>メニュー</th> <th>最終更新日時</th>
+      <th>日付</th> <th>開始時刻</th> <th>終了時刻</th> <th>お客様名</th> <th>メニュー</th> <th>担当</th> <th>最終更新日時</th>
     </tr>
   <%= render partial: 'reservation', collection: @reservations %>
   <table>
@@ -23,7 +23,7 @@
 <% else%>
 <div class="reservations-none">
   <div class="reservation-none">
-  <%= @staff.name + 'の予約情報はありません。ご予約をお待ちしております。'%>
+  <%= '予約情報はありません。ご予約をお待ちしております。' %>
   </div>
 </div>
 <% end %>

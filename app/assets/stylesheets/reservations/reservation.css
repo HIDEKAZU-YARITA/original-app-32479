@@ -207,20 +207,20 @@
   background-color: white;
   border-radius: 5px;
 }
-.staffs{
+.staffs {
   height: calc(100vh - 100px - 30px);
   background-color: #2f3e51;
   padding: 30px 60px 0;
   /* overflow: scroll; */
 }
-.staff{
+.staff {
   border-radius: 5px;
   border: solid 1px #2f3e51;
   background-color: white;
   text-align: center;
   margin-bottom: 30px;
 }
-.staff a{
+.staff a {
   padding: 20px;
   text-decoration: none;
   color: #2f3e51;
@@ -247,6 +247,7 @@
 }
 .header-button{
   margin-top: 40px;
+  margin-left: 40px;
 }
 .header-button a {
   text-decoration: none;
@@ -255,11 +256,11 @@
   background-color: #253141;
   border-radius: 5px;
 }
-.header-button-destroy{
+.header-button-reverse {
   margin-top: 40px;
-  margin-right: 40px;
+  margin-left: 40px;
 }
-.header-button-destroy a {
+.header-button-reverse a {
   text-decoration: none;
   padding: 20px;
   color: #253141;

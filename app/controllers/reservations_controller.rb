@@ -72,9 +72,8 @@ class ReservationsController < ApplicationController
 
   def destroy
     if @reservation.start_time > DateTime.now
-      @pre_reservation = @reservation
       @reservation.destroy
-      redirect_to reservations_path(id: @pre_reservation.staff.id) and return
+      redirect_to staffs_path and return
     else
       redirect_to reservations_path(id: @reservation.staff.id) and return
     end
