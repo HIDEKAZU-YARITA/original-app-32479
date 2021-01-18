@@ -1,0 +1,63 @@
+<div class="wrapper">
+  <div class="side-bar">
+    <div class="side-bar-header">
+    </div>
+    <div class="staffs">
+      <%= link_to(root_path, method: :get) do %>
+        <%= image_tag 'animal_chara_lion_biyoushi.png', size: "120x120" , class: "img-file"%>
+      <% end %>
+    </div>
+  </div>
+  <div class="reservation-main">
+    <div class="reservation-main-header">
+      <div class="left-header">
+        <div class="header-title">
+          お客様情報の詳細
+        </div>
+      </div>
+      <div class="right-header">
+        <div class="header-button-parent">
+          <div class="header-button-reverse">
+            <%= link_to "Index Page", staffs_path %>
+          </div>
+          <div class='header-button'>
+            <%= link_to 'To Edit Customer', edit_customer_registration_path(current_customer) %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="show-customer-reservations">
+      <div class="show-customer">
+        <table class="show-customer-table">
+          <tr> <th>お客様名</th> <td><%= @customer.last_name + ' ' + @customer.first_name + ' 様' %></td> </tr>
+          <tr> <th>お客様名(カナ)</th> <td><%= @customer.last_name_kana + ' ' + @customer.first_name_kana + ' サマ' %></td> </tr>
+          <tr> <th>お電話番号</th> <td><%= @customer.phone_number %></td> </tr>
+          <tr> <th>電子メールアドレス</th> <td><%= @customer.email %></td> </tr>
+          <tr><th>最終更新日時</th>
+            <td>
+              <%= @customer.updated_at.strftime('%Y/%m/%d') + '(' + %w(日 月 火 水 木 金 土)[@customer.updated_at.wday] + ')' %>
+              <%= @customer.updated_at.strftime('%H:%M') %>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <% if @reservations.present? %>
+    <div class="show-customer-reservations">
+      <div class="table-title" >ご予約の状況(最新5件)</div>
+      <table class="index-table">
+        <tr>
+          <th>日付</th> <th>開始時刻</th> <th>終了時刻</th> <th>メニュー</th> <th>担当</th> <th>最終更新日時</th>
+        </tr>
+      <%= render partial: 'reservation', collection: @reservations %>
+      <table>
+    </div>
+    <% else%>
+    <div class="show-customer-reservations-none">
+      <div class="show-customer-reservation-none">
+      <%= '予約情報はありません。ご予約をお待ちしております。' %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

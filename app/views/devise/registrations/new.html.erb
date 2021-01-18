@@ -22,7 +22,7 @@
             <%= link_to "Index Page", staffs_path %>
           </div>
           <div class='header-button-reverse'>
-            <%= link_to 'Sign In', new_customer_session_path%>
+            <%= link_to 'To Sign In', new_customer_session_path%>
           </div>
           <div class="actions">
             <%= f.submit "Sign Up", class: 'btn' %>
@@ -33,7 +33,6 @@
     <div class="reservation-parent-customer">
       <div class="reservation">
         <%= devise_error_messages! %>
-        <div class='field'>
         <div class='field'>
           <div class='field-label'>
             <b>電子メールアドレス</b>

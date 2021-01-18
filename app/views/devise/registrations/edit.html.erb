@@ -21,8 +21,11 @@
           <div class="header-button-reverse">
             <%= link_to "Index Page", staffs_path %>
           </div>
+          <div class="header-button-reverse">
+            <%= link_to "Show Customer", customer_path(current_customer.id) %>
+          </div>
           <div class="actions">
-            <%= f.submit "Customer Update", class: 'btn', data: { confirm: 'Are you sure you want to change it?' } %>
+            <%= f.submit "Update Customer", class: 'btn', data: { confirm: 'Are you sure you want to change it?' } %>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@
   <div class="header-name">
     <% if customer_signed_in? %>
     <%= link_to current_customer.last_name + ' ' + current_customer.first_name + ' 様',
-          edit_customer_registration_path(current_customer), method: :get, class: "customer-name" %>
+          customer_path(current_customer), method: :get, class: "customer-name" %>
     <% end %>
   </div>
   <div class="sign-out">
