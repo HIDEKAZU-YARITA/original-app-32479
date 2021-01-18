@@ -5,7 +5,7 @@
           edit_customer_registration_path(current_customer), method: :get, class: "customer-name" %>
     <% end %>
   </div>
-  <div class="log-out">
+  <div class="sign-out">
     <% if customer_signed_in? %>
     <%= link_to "Sign Out", destroy_customer_session_path, method: :delete %>
     <% end %>

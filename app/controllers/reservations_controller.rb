@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_customer!, except: :index
-  before_action :set_staffs, only: [:index, :show]
+  before_action :set_staffs, only: [:new, :create, :index, :show]
   before_action :set_reservation, only: [:show, :edit, :destroy]
   before_action :move_to_index, only: [:edit]
   before_action :set_end_time, only: [:create, :update]
