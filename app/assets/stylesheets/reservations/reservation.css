@@ -372,7 +372,7 @@
   justify-content: center;
 }
 .reservation-parent-customer {
-  height: calc(100vh - 100px - 100px);
+  height: calc(100vh - 100px - 10px);
   background-color: #fafafa;
   padding-top: 10px;
   display: flex;
