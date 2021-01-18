@@ -31,6 +31,6 @@ class Reservation < ApplicationRecord
         end
       end
     end
-    return break_flag
+    break_flag
   end
 end

@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
                                       keys: [:last_name, :first_name, :last_name_kana, :first_name_kana, :phone_number])
   end
 
-  def after_sign_in_path_for(resource) 
+  def after_sign_in_path_for(_resource)
     staffs_path
   end
 end
