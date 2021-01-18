@@ -1,12 +1,38 @@
-<div class='account-page' id='account-page'>
-  <div class='account-page__inner clearfix'>
-    <div class='account-page__inner--left account-page__header'>
-      <h2>New Account</h2>
-      <h5>新規アカウントの作成</h5>
+<div class="wrapper">
+  <div class="side-bar">
+    <div class="side-bar-header">
     </div>
-    <div class='account-page__inner--right user-form'>
-      <%= form_with model: resource, as: resource_name, url: registration_path(resource_name), local: true do |f|%>
-        <%= devise_error_messages!%>
+    <div class="staffs">
+      <%= link_to(root_path, method: :get) do %>
+        <%= image_tag 'animal_chara_lion_biyoushi.png', size: "120x120" , class: "img-file"%>
+      <% end %>
+    </div>
+  </div>
+  <div class="reservation-main">
+    <%= form_with model: resource, as: resource_name, url: registration_path(resource_name), local: true do |f|%>
+    <div class="reservation-main-header">
+      <div class="left-header">
+        <div class="header-title">
+          お客様情報の登録
+        </div>
+      </div>
+      <div class="right-header">
+        <div class="header-button-parent">
+          <div class="header-button-reverse">
+            <%= link_to "Index Page", staffs_path %>
+          </div>
+          <div class='header-button-reverse'>
+            <%= link_to 'To Sign In', new_customer_session_path%>
+          </div>
+          <div class="actions">
+            <%= f.submit "Sign Up", class: 'btn' %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reservation-parent-customer">
+      <div class="reservation">
+        <%= devise_error_messages! %>
         <div class='field'>
           <div class='field-label'>
             <b>電子メールアドレス</b>
@@ -82,12 +108,6 @@
           <div class='field-input'>
             <%= f.text_field :phone_number, autofocus: true%>
           </div>
-        </div>
-        <div class='actions'>
-          <%= f.submit "Create Account", class: 'btn'%>
-        </div>
-        <div class='actions'>
-          <%= link_to 'Sign in', new_customer_session_path, class: 'back-btn'%>
         </div>
       </div>
     <% end %>
