@@ -1,0 +1,44 @@
+<div class="wrapper">
+  <div class="side-bar">
+    <%= render "reservations/side_bar" %>
+  </div>
+  <div class="reservation-main">
+    <div class="reservation-main-header">
+      <div class="left-header">
+        <div class="header-title">
+          <b>Welcome to "Original App 32479 Beauty Salon"</b>
+        </div>
+      </div>
+      <div class="right-header">
+        <div class="header-button-parent">
+          <% unless customer_signed_in? %>
+          <div class="header-button-reverse">
+            <%= link_to "To Sign Up", new_customer_registration_path, method: :get %>
+          </div>
+          <div class="header-button-reverse">
+            <%= link_to "To Sign In", new_customer_session_path, method: :get %>
+          </div>
+          <% end %>
+          <div class="header-button">
+            <%= link_to "Index Page", staffs_path, method: :get %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="top-page">
+      <%= image_tag 'building_biyouin.png', size: "360x360", class: "top-img-file" %>
+      <div class="title">
+        オリジナルアプリ32479美容室へようこそ
+      </div>
+      <div class="text">
+        (営業時間) 10:00 から 18:00 まで  (定休日) 毎週火曜日
+      </div>
+      <div class="message">
+        予約の状況は左側のボタンをクリックするとご確認いただけます
+      </div>
+      <div class="copy-right">
+        (c) 2021 Original App 32479 Beauty Salon. All rights reserved. 
+      </div>
+    </div>
+  </div>
+</div>

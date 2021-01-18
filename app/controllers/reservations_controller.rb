@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
-  before_action :authenticate_customer!
-  before_action :set_staffs, only: [:index, :show]
+  before_action :authenticate_customer!, except: :index
+  before_action :set_staffs, except: :destroy
   before_action :set_reservation, only: [:show, :edit, :destroy]
   before_action :move_to_index, only: [:edit]
   before_action :set_end_time, only: [:create, :update]
@@ -50,7 +50,8 @@ class ReservationsController < ApplicationController
     @reservations = Reservation.where(staff_id: @reservation.staff_id).where(start_time: @search_date.in_time_zone.all_day).where.not(id: @pre_reservation.id)
     return_value = Reservation.check(@reservation, @reservations, @business_hours_end_time)
     if return_value == 0
-      if @pre_reservation.update(start_time: @reservation.start_time, end_time: @reservation.end_time, staff_id: @reservation.staff_id, menu_id: @reservation.menu_id)
+      if @pre_reservation.update(start_time: @reservation.start_time, end_time: @reservation.end_time,
+                                 staff_id: @reservation.staff_id, menu_id: @reservation.menu_id)
         redirect_to reservations_path(id: @reservation.staff.id)
       else
         render :edit
@@ -72,9 +73,8 @@ class ReservationsController < ApplicationController
 
   def destroy
     if @reservation.start_time > DateTime.now
-      @pre_reservation = @reservation
       @reservation.destroy
-      redirect_to reservations_path(id: @pre_reservation.staff.id) and return
+      redirect_to staffs_path and return
     else
       redirect_to reservations_path(id: @reservation.staff.id) and return
     end
@@ -102,7 +102,8 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @menu = Menu.find(@reservation.menu_id)
     @reservation.end_time = @reservation.start_time + @menu.time * 60 * 60
-    @search_date = DateTime.new(@reservation.start_time.year, @reservation.start_time.mon, @reservation.start_time.day, 0, 0, 0,'+09:00')
+    @search_date = DateTime.new(@reservation.start_time.year, @reservation.start_time.mon, @reservation.start_time.day, 0, 0, 0,
+                                '+09:00')
     @business_hours_end_time = DateTime.new(@search_date.year, @search_date.mon, @search_date.day, 18, 0, 0, '+09:00')
   end
 end

@@ -3,8 +3,8 @@ Rails.application.routes.draw do
     registrations: 'customers/registrations'
   }
   
-  get 'customers/index'
-  root to: "staffs#index"
+  # get 'top/index'
+  root to: "top#index"
   resources :reservations
   resources :staffs, only: [:index]
 end

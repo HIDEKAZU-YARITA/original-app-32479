@@ -1,13 +1,20 @@
 <div class="side-bar-header">
   <div class="header-name">
+    <% if customer_signed_in? %>
     <%= link_to current_customer.last_name + ' ' + current_customer.first_name + ' 様',
           edit_customer_registration_path(current_customer), method: :get, class: "customer-name" %>
+    <% end %>
   </div>
-  <div class="log-out">
-    <%= link_to "Log Out", destroy_customer_session_path, method: :delete %>
+  <div class="sign-out">
+    <% if customer_signed_in? %>
+    <%= link_to "Sign Out", destroy_customer_session_path, method: :delete %>
+    <% end %>
   </div>
 </div>
 <div class="staffs">
+  <div class="staff">
+    <%= link_to 'すべて', staffs_path %>
+  </div>
   <% @staffs.each do |staff| %>
     <div class="staff">
       <%= link_to staff.name, reservations_path(id: staff.id) %>
