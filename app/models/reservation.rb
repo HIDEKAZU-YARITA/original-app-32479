@@ -16,6 +16,7 @@ class Reservation < ApplicationRecord
   end
 
   def self.check(reservation, reservations, business_hours_end_time)
+    reservation.valid?
     break_flag = 0
     if reservation.start_time < DateTime.now    # 過去
       break_flag = 4

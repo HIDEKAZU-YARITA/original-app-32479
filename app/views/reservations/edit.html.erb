@@ -1,14 +1,29 @@
-<div class='reservation-page' id='reservation-page'>
-  <div class='reservation-page__inner clearfix'>
-    <div class='reservation-page__inner--left reservation-page__header'>
-      <h2>Edit Reservation</h2>
-      <h5>予約の変更</h5>
+<div class="wrapper">
+  <div class="side-bar">
+    <%= render "side_bar" %>
+  </div>
+  <div class="reservation-main">
+    <%= form_with model: @reservation, url: reservation_path, method: :patch, local: true do |f|%>
+    <div class="reservation-main-header">
+      <div class="left-header">
+        <div class="header-title">
+          ご予約の変更
+        </div>
+      </div>
+      <div class="right-header">
+        <div class="header-button-parent">
+          <div class="header-button-reverse">
+            <%= link_to "Back Page", reservation_path %>
+          </div>
+          <div class="actions">
+            <%= f.submit "Update Reservation", class: 'btn', data: { confirm: 'Are you sure you want to change it?' } %>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class='reservation-page__inner--right user-form'>
-      <%= form_with model: @reservation, url: reservation_path, method: :patch, local: true do |f|%>
-
+    <div class="reservation-parent">
+      <div class="reservation">
       <%= render 'shared/error_messages', model: @reservation %>
-
         <div class='field'>
           <div class="field-label">
             <b>予約日時</b>
@@ -19,9 +34,10 @@
                         with_css_classes:'select-start-time',
                         id:"start-time",
                         use_month_numbers: true,
+                        default: (DateTime.now) + 1.0.hour,
                         start_year: (DateTime.now.year),
                         end_year: (DateTime.now.year + 1),
-                        start_hour: 8,
+                        start_hour: 10,
                         end_hour: 17,
                         minute_step: 30,
                         date_separator: '%s'),
@@ -39,13 +55,8 @@
           </div>
           <%= f.collection_select(:menu_id, Menu.all, :id, :name, {}, {class:"select-box", id:"reservation-menu"}) %>
         </div>
-        <div class='actions'>
-          <%= f.submit "Update Reservation", class: 'btn'%>
-        </div>
-        <div class='actions'>
-          <%= link_to 'Back', reservation_path, class: 'back-btn' %>
-        </div>
       </div>
     <% end %>
+    </div>
   </div>
 </div>
