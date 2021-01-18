@@ -274,9 +274,6 @@
   padding: 0 40px;
   overflow: scroll;
 }
-.reservation {
-  margin: 10px 0 0 0;
-}
 .reservations-none {
   height: calc(100vh - 100px);
   background-color: #fafafa;
@@ -374,7 +371,15 @@
   display: flex;
   justify-content: center;
 }
+.reservation-parent-customer {
+  height: calc(100vh - 100px - 100px);
+  background-color: #fafafa;
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+}
 .reservation {
+  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
 }
