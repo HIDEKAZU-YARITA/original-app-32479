@@ -15,20 +15,22 @@ class Reservation < ApplicationRecord
     validates :staff_id
   end
 
-  def self.check(reservation, reservations, business_hours_end_time)
+  def self.check(reservation, customer_reservations, staff_reservations, business_hours_end_time)
     reservation.valid?
     break_flag = 0
     if reservation.start_time < DateTime.now    # 過去
-      break_flag = 4
+      break_flag = 5
     elsif reservation.start_time.wday == 2      # 火曜日
-      break_flag = 3
+      break_flag = 4
     elsif reservation.end_time > business_hours_end_time # 終了時刻が営業時間外
-      break_flag = 2
-    else
-      unless reservations.blank?
-        reservations.each do |f|
-          break_flag = 1 unless reservation.start_time >= f.end_time || reservation.end_time <= f.start_time # 予約あり
-        end
+      break_flag = 3
+    elsif !staff_reservations.blank?
+      staff_reservations.each do |f|
+        break_flag = 2 unless reservation.start_time >= f.end_time || reservation.end_time <= f.start_time # スタッフに予約あり
+      end
+    else !customer_reservations.blank?
+      customer_reservations.each do |f|
+        break_flag = 1 unless reservation.start_time >= f.end_time || reservation.end_time <= f.start_time # お客様に予約あり
       end
     end
     break_flag
