@@ -29,6 +29,7 @@
     <div class="show-customer-reservations">
       <div class="show-customer">
         <table class="show-customer-table">
+          <tr> <th></th> <td></td> </tr>
           <tr> <th>お客様名</th> <td><%= @customer.last_name + ' ' + @customer.first_name + ' 様' %></td> </tr>
           <tr> <th>お客様名(カナ)</th> <td><%= @customer.last_name_kana + ' ' + @customer.first_name_kana + ' サマ' %></td> </tr>
           <tr> <th>お電話番号</th> <td><%= @customer.phone_number %></td> </tr>
