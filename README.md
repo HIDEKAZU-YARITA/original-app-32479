@@ -2,7 +2,7 @@
 「オリジナルアプリ32479美容室」予約アプリ
 
 
-＃アプリケーション概要
+# アプリケーション概要
 東京下町にある40代男性が経営する美容室(仮想)の予約ができるアプリケーションである
 
 
@@ -210,13 +210,13 @@ https://gyazo.com/ee0e60ee79e97230d70f8e62deaab01f
 # ローカルでの動作方法
 
 ## リポジトリのクローン
-% git clone https://github.com/HIDEKAZU-YARITA/original-app-32479.git
-% cd original-app-32479
-% bundle install
-% yarn install
-% rails db:create
-% rails db:migrate
-% rails s
+- % git clone https://github.com/HIDEKAZU-YARITA/original-app-32479.git
+- % cd original-app-32479
+- % bundle install
+- % yarn install
+- % rails db:create
+- % rails db:migrate
+- % rails s
 
 ## 開発環境
 - ruby 2.6.5
