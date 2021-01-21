@@ -1,7 +1,9 @@
-/********** 共通：サイドバー・ヘッダ **********/
+/********** 全体 **********/
 .wrapper{
   display: flex;
 }
+
+/********** サイドバー **********/
 .side-bar{
   height: 100vh;
   width: 300px;
@@ -14,8 +16,10 @@
   justify-content: space-between;
   align-items: center;
 }
-.header-name a{
+.customer-name {
   font-size: 20px;
+}
+.customer-name a {
   color: #FAFAFA;
   text-decoration: none;
 }
@@ -39,16 +43,22 @@
   border: solid 1px #2f3e51;
   background-color: white;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  padding: 15px;
 }
 .staff a {
-  padding: 20px;
   text-decoration: none;
   color: #2f3e51;
   display: block;
 }
+.img-file{
+  bottom: 30px;
+  left: 80px;
+  position: fixed;
+  padding: 15px;
+}
 
-/********** メインウィンドウ **********/
+/********** メイン：ヘッダ **********/
 .reservation-main{
   width: calc(100vw - 300px);
   background-color: #ffffff;
@@ -65,12 +75,17 @@
   font-size: 24px;
   margin-top: 36px;
 }
+.header-title-top-page{
+  color: #333;
+  font-size: 20px;
+  margin-top: 36px;
+}
 .header-button-parent{
   display: flex;
 }
 .header-button{
   margin-top: 40px;
-  margin-left: 40px;
+  margin-left: 20px;
 }
 .header-button a {
   text-decoration: none;
@@ -81,7 +96,7 @@
 }
 .header-button-reverse {
   margin-top: 40px;
-  margin-left: 40px;
+  margin-left: 20px;
 }
 .header-button-reverse a {
   text-decoration: none;
@@ -91,6 +106,8 @@
   border: solid 1px #253141;
   border-radius: 5px;
 }
+
+/********** メイン：共通 **********/
 .reservations{
   height: calc(100vh - 100px);
   background-color: #fafafa;
@@ -100,22 +117,15 @@
 .reservations-none {
   height: calc(100vh - 100px);
   background-color: #fafafa;
-  padding: 0 40px;
+  padding: 200px 40px 0;
   display: flex;
   justify-content: center;
-  padding-top: 200px;
 }
 .reservation-none {
   font-size: 28px;
 }
 .hidden {
   display: none;
-}
-.img-file{
-  bottom: 30px;
-  left: 80px;
-  position: fixed;
-  padding: 15px;
 }
 
 /********** お客様情報 **********/
@@ -390,10 +400,10 @@
   text-align: center;
 }
 .top-page .top-img-file {
-  margin-top: 80px; 
+  margin-top: 50px; 
 }
 .top-page .title {
-  margin-top: 70px; 
+  margin-top: 50px; 
   font-size: 40px;
 }
 .top-page .text {
@@ -405,7 +415,7 @@
   font-size: 25px;
 }
 .top-page .copy-right {
-  margin-top: 65px; 
+  margin-top: 60px; 
   font-size: 12px;
 }
 
@@ -448,4 +458,90 @@
   margin: 0;
   padding: 0;
   font-size: 13px;
+}
+
+/* タブレット表示時 */
+@media (max-width: 1024px) {
+  /********** メイン：ヘッダ **********/
+  .header-title{
+    font-size: 16px;
+    margin-top: 36px;
+  }
+  .header-title-top-page{
+    font-size: 16px;
+    margin-top: 36px;
+  }
+  .header-button{
+    margin-top: 40px;
+    margin-left: 15px;
+    font-size: 12px;
+  }
+  .header-button a {
+    padding: 15px 10px;
+  }
+  .header-button-reverse {
+    margin-top: 40px;
+    margin-left: 15px;
+    font-size: 12px;
+  }
+  .header-button-reverse a {
+    padding: 15px 10px;
+  }
+  .header-button-parent .actions .btn {
+    margin-top: 26px;
+    margin-left: 15px;
+    padding: 14px 10px;
+    font-size: 12px;
+  }
+  /********** メイン：共通 **********/
+  .reservations{
+    padding: 0 20px;
+  }
+  .reservations-none {
+    padding: 0 20px;
+    padding-top: 160px;
+  }
+  .reservation-none {
+    font-size: 22px;
+  }
+  /**********  一覧ページ：表 **********/
+  .index-table th {
+    padding: 5px 5px;
+    font-size: 10px;
+  }
+  .index-table td {
+    padding: 5px 5px;
+    font-size: 8px;
+  }
+  /********** 詳細ページ **********/
+  .show-customer-reservations {
+    padding: 0 20px;
+  }
+  .show-customer-reservations-none {
+    padding-top: 200px 20px 0;
+  }
+  .show-customer-table {
+    padding-top: 20px;
+    font-size: 16px;
+  }
+  /********** トップページ **********/
+  .top-page .top-img-file {
+    margin-top: 40px; 
+  }
+  .top-page .title {
+    margin-top: 40px; 
+    font-size: 30px;
+  }
+  .top-page .text {
+    margin-top: 10px; 
+    font-size: 13.5px;
+  }
+  .top-page .message {
+    margin-top: 32px; 
+    font-size: 20px;
+  }
+  .top-page .copy-right {
+    margin-top: 40px; 
+    font-size: 9px;
+  }
 }
