@@ -13,25 +13,26 @@ class ReservationsController < ApplicationController
     @customer_reservations = Reservation.where(customer_id: @reservation.customer.id).where(start_time: @search_date.in_time_zone.all_day)
     @staff_reservations = Reservation.where(staff_id: @reservation.staff_id).where(start_time: @search_date.in_time_zone.all_day)
     return_value = Reservation.check(@reservation, @customer_reservations, @staff_reservations, @business_hours_end_time)
-    if return_value == 0
+    case return_value
+    when 0 then
       if @reservation.save
         redirect_to reservations_path(id: @reservation.staff.id)
       else
         render :new
       end
-    elsif return_value == 1
+    when 1 then
       @reservation.errors.add(:start_time, ': you already have your reservation.')
       render :new
-    elsif return_value == 2
+    when 2 then
       @reservation.errors.add(:start_time, 'is already scheduled.')
       render :new
-    elsif return_value == 3
+    when 3 then
       @reservation.errors.add(:end_time, 'is outside business hours.')
       render :new
-    elsif return_value == 4
+    when 4 then
       @reservation.errors.add(:start_time, 'is holiday.')
       render :new
-    elsif return_value == 5
+    when 5 then
       @reservation.errors.add(:start_time, 'is the past.')
       render :new
     end
@@ -54,26 +55,27 @@ class ReservationsController < ApplicationController
     @customer_reservations = Reservation.where(customer_id: @reservation.customer.id).where(start_time: @search_date.in_time_zone.all_day).where.not(id: @pre_reservation.id)
     @staff_reservations = Reservation.where(staff_id: @reservation.staff_id).where(start_time: @search_date.in_time_zone.all_day).where.not(id: @pre_reservation.id)
     return_value = Reservation.check(@reservation, @customer_reservations, @staff_reservations, @business_hours_end_time)
-    if return_value == 0
+    case return_value
+    when 0 then
       if @pre_reservation.update(start_time: @reservation.start_time, end_time: @reservation.end_time,
                                  staff_id: @reservation.staff_id, menu_id: @reservation.menu_id)
         redirect_to reservations_path(id: @reservation.staff.id)
       else
         render :edit
       end
-    elsif return_value == 1
+    when 1 then
       @reservation.errors.add(:start_time, ': you already have your reservation.')
       render :edit
-    elsif return_value == 2
+    when 2 then
       @reservation.errors.add(:start_time, 'is already scheduled.')
       render :edit
-    elsif return_value == 3
+    when 3 then
       @reservation.errors.add(:end_time, 'is outside business hours.')
       render :edit
-    elsif return_value == 4
+    when 4 then
       @reservation.errors.add(:start_time, 'is holiday.')
       render :edit
-    elsif return_value == 5
+    when 5 then
       @reservation.errors.add(:start_time, 'is the past.')
       render :edit
     end
